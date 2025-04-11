@@ -8,14 +8,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <title>李辰博-个人主页</title>
     <style>
-       .brush-line {
+        .brush-line {
             height: 3px;
             background: linear-gradient(to right, #3b82f6, rgba(59, 130, 246, 0));
             margin-bottom: 1rem;
             width: fit-content;
         }
 
-       .course-box {
+        .course-box {
             display: flex;
             justify-content: space-between;
             border: 1px solid #e5e7eb;
@@ -26,31 +26,31 @@
             transition: transform 0.2s ease;
         }
 
-       .course-box:hover {
+        .course-box:hover {
             transform: scale(1.05);
         }
 
-       .course-name {
+        .course-name {
             color: #000;
             font-weight: bold;
         }
 
-       .course-score {
+        .course-score {
             color: #3b82f6;
         }
 
-       .course-container {
+        .course-container {
             display: flex;
             flex-wrap: wrap;
             margin: -0.25rem;
         }
 
-       .custom-img-max-width {
+        .custom-img-max-width {
             max-width: 20%;
         }
 
         /* 个人荣誉部分样式 */
-       .honor-box {
+        .honor-box {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -59,12 +59,12 @@
             width: calc(33.333% - 1rem);
             margin: 0.5rem;
             background-color: #fff;
-            border-radius: 1.5rem; /* 调整整体框的圆角程度 */
+            border-radius: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             aspect-ratio: 1/1.5;
         }
 
-       .honor-img-container {
+        .honor-img-container {
             position: relative;
             width: 100%;
             overflow: hidden;
@@ -73,43 +73,43 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top-left-radius: 1.5rem; /* 与.honor-box 的圆角程度保持一致 */
+            border-top-left-radius: 1.5rem;
             border-top-right-radius: 1.5rem;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
 
-       .honor-content {
+        .honor-content {
             flex: 1;
             padding: 0.5rem;
         }
 
-       .honor-img {
+        .honor-img {
             max-height: 100%;
-            max-width: 100%; /* 确保图片不会超出容器宽度 */
-            object-fit: contain; /* 保持图片比例并完整显示在容器内 */
+            max-width: 100%;
+            object-fit: contain;
             transition: transform 0.2s ease;
             cursor: pointer;
-            margin: auto; /* 让图片在容器内居中 */
+            margin: auto;
         }
 
-       .honor-img:hover {
+        .honor-img:hover {
             transform: scale(1.1);
         }
 
-       .honor-name {
+        .honor-name {
             font-size: 1.25rem;
             font-weight: bold;
             margin: 1rem 0;
         }
 
-       .honor-desc {
+        .honor-desc {
             font-size: 0.875rem;
             color: #6b7280;
             margin-bottom: 1rem;
         }
 
-       .honor-date {
+        .honor-date {
             background-color: #6366f1;
             color: #fff;
             padding: 0.25rem 0.5rem;
@@ -117,57 +117,34 @@
             font-weight: bold;
         }
 
-       .honor-container {
+        .honor-container {
             display: flex;
             flex-wrap: wrap;
             margin: -0.5rem;
         }
 
-        /* 自定义图片百分比类，每张图片可以单独设置不同的百分比 */
-       .honor-img-width-1 {
-            max-width: 70%; /* 图片1的百分比 */
-        }
+        /* 自定义图片百分比类 */
+        .honor-img-width-1 { max-width: 70%; }
+        .honor-img-width-2 { max-width: 70%; }
+        .honor-img-width-3 { max-width: 70%; }
+        .honor-img-width-4 { max-width: 70%; }
+        .honor-img-width-5 { max-width: 70%; }
+        .honor-img-width-6 { max-width: 40%; }
+        .honor-img-width-7 { max-width: 40%; }
+        .honor-img-width-8 { max-width: 70%; }
 
-       .honor-img-width-2 {
-            max-width: 70%; /* 图片2的百分比 */
-        }
-
-       .honor-img-width-3 {
-            max-width: 70%; /* 图片3的百分比 */
-        }
-
-       .honor-img-width-4 {
-            max-width: 70%; /* 图片4的百分比 */
-        }
-
-       .honor-img-width-5 {
-            max-width: 70%; /* 图片5的百分比 */
-        }
-
-       .honor-img-width-6 {
-            max-width: 40%; /* 图片6的百分比 */
-        }
-
-       .honor-img-width-7 {
-            max-width: 40%; /* 图片7的百分比 */
-        }
-
-       .honor-img-width-8 {
-            max-width: 70%; /* 图片8的百分比 */
-        }
-
-        /* 新增 CET 图片悬停放大样式 */
-       .cet-img {
+        /* CET 图片悬停放大样式 */
+        .cet-img {
             transition: transform 0.2s ease;
         }
 
-       .cet-img:hover {
+        .cet-img:hover {
             transform: scale(1.1);
         }
 
-        /* 项目经历和竞赛获奖部分新样式 */
-       .project-box,
-       .competition-box {
+        /* 项目经历和竞赛获奖部分样式 */
+        .project-box,
+        .competition-box {
             display: flex;
             margin: 1rem 0;
             background-color: #fff;
@@ -175,8 +152,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-       .project-img-container,
-       .competition-img-container {
+        .project-img-container,
+        .competition-img-container {
             position: relative;
             width: 30%;
             overflow: hidden;
@@ -188,58 +165,161 @@
             border-bottom-left-radius: 1.5rem;
         }
 
-       .project-img,
-       .competition-img {
+        .project-img,
+        .competition-img {
             max-height: 100%;
             object-fit: contain;
             transition: transform 0.2s ease;
             cursor: pointer;
-            margin: auto; /* 让图片在容器内居中 */
+            margin: auto;
         }
 
-       .project-img:hover,
-       .competition-img:hover {
+        .project-img:hover,
+        .competition-img:hover {
             transform: scale(1.1);
         }
 
-       .project-content,
-       .competition-content {
+        .project-content,
+        .competition-content {
             width: 65%;
             padding: 1rem;
         }
 
-       .project-title,
-       .competition-title {
+        .project-title,
+        .competition-title {
             font-size: 1.25rem;
             font-weight: bold;
             color: #000;
             margin-bottom: 0.5rem;
         }
 
-       .project-info,
-       .competition-info {
+        .project-info,
+        .competition-info {
             font-size: 0.875rem;
             color: #6b7280;
             margin-bottom: 1rem;
         }
 
-        /* 新增项目图片宽度类 */
-       .project-img-width-1 {
-            max-width: 80%;
-        }
-       .project-img-width-2 {
-            max-width: 80%;
+        /* 项目图片宽度类 */
+        .project-img-width-1 { max-width: 80%; }
+        .project-img-width-2 { max-width: 80%; }
+
+        /* 竞赛图片宽度类 */
+        .competition-img-width-1 { max-width: 45%; }
+        .competition-img-width-2 { max-width: 70%; }
+        .competition-img-width-3 { max-width: 70%; }
+
+        /* 响应式设计 - 移动设备适配 */
+        @media (max-width: 768px) {
+            /* 首页布局调整 */
+            .custom-img-max-width {
+                max-width: 40%;
+                margin-bottom: 1rem;
+            }
+            
+            /* 课程盒子调整为两列 */
+            .course-box {
+                flex-basis: calc(50% - 0.5rem);
+            }
+            
+            /* 荣誉盒子调整为两列 */
+            .honor-box {
+                width: calc(50% - 1rem);
+                aspect-ratio: 1/1.3;
+            }
+            
+            /* 项目和竞赛调整为垂直布局 */
+            .project-box, 
+            .competition-box {
+                flex-direction: column;
+            }
+            
+            .project-img-container, 
+            .competition-img-container {
+                width: 100%;
+                border-radius: 1.5rem 1.5rem 0 0;
+                height: 200px;
+            }
+            
+            .project-content, 
+            .competition-content {
+                width: 100%;
+            }
+            
+            /* 调整字体大小 */
+            .project-title, 
+            .competition-title {
+                font-size: 1.1rem;
+            }
+            
+            /* CET图片调整为垂直布局 */
+            .flex-wrap > .w-1\/2 {
+                width: 100%;
+            }
+            
+            /* 教育背景调整为垂直布局 */
+            .bg-white.flex.items-start {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .bg-white.flex.items-start > img {
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+            
+            /* 调整荣誉图片大小 */
+            .honor-img-width-1, 
+            .honor-img-width-2, 
+            .honor-img-width-3, 
+            .honor-img-width-4, 
+            .honor-img-width-5, 
+            .honor-img-width-8 {
+                max-width: 60%;
+            }
+            
+            .honor-img-width-6, 
+            .honor-img-width-7 {
+                max-width: 40%;
+            }
+            
+            /* 调整首页标题大小 */
+            .text-6xl {
+                font-size: 2.5rem;
+            }
+            
+            .text-2xl {
+                font-size: 1.1rem;
+            }
         }
 
-        /* 新增竞赛图片宽度类 */
-       .competition-img-width-1 {
-            max-width: 45%;
-        }
-       .competition-img-width-2 {
-            max-width: 70%;
-        }
-        .competition-img-width-3 {
-            max-width: 70%;
+        /* 更小的设备适配 */
+        @media (max-width: 480px) {
+            /* 课程盒子调整为单列 */
+            .course-box {
+                flex-basis: 100%;
+            }
+            
+            /* 荣誉盒子调整为单列 */
+            .honor-box {
+                width: 100%;
+            }
+            
+            /* 进一步调整字体大小 */
+            .text-6xl {
+                font-size: 2rem;
+            }
+            
+            .text-2xl {
+                font-size: 1rem;
+            }
+            
+            /* 调整项目图片容器高度 */
+            .project-img-container, 
+            .competition-img-container {
+                height: 150px;
+            }
         }
     </style>
 </head>
@@ -247,32 +327,31 @@
 <body class="bg-gray-100 text-gray-800 font-sans">
     <div class="relative h-screen bg-cover bg-center" style="background-image: url('https://i.ibb.co/N6qFxS2n/image.jpg');">
         <div class="absolute inset-0 bg-black opacity-5"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white p-8 border-2 border-white rounded-md w-1/2 bg-white bg-opacity-50">
-            <div class="flex items-center">
-                <div class="flex-1">
-                    <h1 class="text-6xl font-bold mb-4">李辰博</h1>
-                    <p class="text-2xl mb-2">电话：13721679346</p>
-                    <p class="text-2xl mb-2">邮箱：udt917964@gmail.com</p>
-                    <p class="text-2xl">东北大学 · 计算机科学与技术 · 专业5%</p>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white p-4 md:p-8 border-2 border-white rounded-md w-11/12 md:w-1/2 bg-white bg-opacity-50">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="flex-1 order-2 md:order-1">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">李辰博</h1>
+                    <p class="text-lg md:text-2xl mb-2">电话：13721679346</p>
+                    <p class="text-lg md:text-2xl mb-2">邮箱：udt917964@gmail.com</p>
+                    <p class="text-lg md:text-2xl">东北大学 · 计算机科学与技术 · 专业5%</p>
                 </div>
-                <img src="https://i.ibb.co/V0Xq2XtL/image.png" alt="image" border="0" class="h-auto w-auto max-h-full ml-4 custom-img-max-width">
+                <img src="https://i.ibb.co/V0Xq2XtL/image.png" alt="image" border="0" class="h-auto w-auto max-h-32 md:max-h-full ml-0 md:ml-4 mb-4 md:mb-0 custom-img-max-width order-1 md:order-2">
             </div>
-            <div class="mt-4"></div>
         </div>
     </div>
-    <main class="container mx-auto p-8 space-y-8">
+    <main class="container mx-auto p-4 md:p-8 space-y-8">
         <div>
             <h2 class="text-2xl font-bold mb-2 flex items-center"><i class="fa-solid fa-graduation-cap mr-2"></i>教育背景</h2>
             <div class="brush-line"></div>
-            <div class="bg-white p-8 rounded-lg shadow-md flex items-start">
-                <img src="https://i.ibb.co/ksWCgBB8/image.png" alt="image" border="0" class="h-auto w-auto max-w-[9%]">
-                <div>
-                    <p class="text-2xl font-bold text-black">东北大学</p>
-                    <p class="text-lg text-purple-600">计算机科学与技术 | 2022.09 - 至今</p>
-                    <p class="font-bold"><i class="fa-solid fa-award mr-2"></i>专业排名：10/191（TOP 5%）&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-star mr-2"></i>GPA：4.26/5.00</p>
+            <div class="bg-white p-4 md:p-8 rounded-lg shadow-md flex flex-col md:flex-row items-start">
+                <img src="https://i.ibb.co/ksWCgBB8/image.png" alt="image" border="0" class="h-auto w-auto max-w-[20%] md:max-w-[9%] mb-4 md:mb-0">
+                <div class="md:ml-4">
+                    <p class="text-xl md:text-2xl font-bold text-black">东北大学</p>
+                    <p class="text-base md:text-lg text-purple-600">计算机科学与技术 | 2022.09 - 至今</p>
+                    <p class="font-bold text-sm md:text-base"><i class="fa-solid fa-award mr-2"></i>专业排名：10/191（TOP 5%）&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-star mr-2"></i>GPA：4.26/5.00</p>
                 </div>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="bg-white p-4 md:p-8 rounded-lg shadow-md">
                 <p class="font-bold text-black mt-2">核心课程成绩</p>
                 <div class="course-container">
                     <div class="course-box">
@@ -314,21 +393,23 @@
                 </div>
                 <p class="font-bold text-black mt-4">语言能力</p>
                 <div class="flex flex-wrap -mx-2">
-                    <div class="w-1/2 px-2 mb-4">
+                    <div class="w-full md:w-1/2 px-2 mb-4">
                         <a href="https://i.ibb.co/9k1vpbNC/CET4.jpg" target="_blank">
-                            <img src="https://i.ibb.co/9k1vpbNC/CET4.jpg" alt="CET4" border="0" class="cet-img">
+                            <img src="https://i.ibb.co/9k1vpbNC/CET4.jpg" alt="CET4" border="0" class="cet-img w-full">
                         </a>
                         <p class="text-center">CET - 4（613）</p>
                     </div>
-                    <div class="w-1/2 px-2 mb-4">
+                    <div class="w-full md:w-1/2 px-2 mb-4">
                         <a href="https://i.ibb.co/HDXH271H/CET6-202306-130640231209730-1.jpg" target="_blank">
-                            <img src="https://i.ibb.co/HDXH271H/CET6-202306-130640231209730-1.jpg" alt="CET6-202306-130640231209730-1" border="0" class="cet-img">
+                            <img src="https://i.ibb.co/HDXH271H/CET6-202306-130640231209730-1.jpg" alt="CET6-202306-130640231209730-1" border="0" class="cet-img w-full">
                         </a>
                         <p class="text-center">CET - 6（561）</p>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- 其余部分保持不变，已经通过媒体查询自动适配 -->
         <div>
             <h2 class="text-2xl font-bold mb-2 flex items-center"><i class="fa-solid fa-microscope mr-2"></i>项目经历</h2>
             <div class="brush-line"></div>
@@ -428,7 +509,6 @@
             <h2 class="text-2xl font-bold mb-2 flex items-center"><i class="fa-solid fa-medal mr-2"></i>个人荣誉</h2>
             <div class="brush-line"></div>
             <div class="honor-container">
-                <!-- 示例荣誉1，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/TMhbRwgs/1.jpg" target="_blank">
@@ -441,7 +521,6 @@
                         <p class="honor-date">2023.11</p>
                     </div>
                 </div>
-                <!-- 示例荣誉2，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/ycSL0LMB/2.jpg" target="_blank">
@@ -454,7 +533,6 @@
                         <p class="honor-date">2024.11</p>
                     </div>
                 </div>
-                <!-- 示例荣誉3，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/gFhNfm9n/image.jpg" target="_blank">
@@ -467,7 +545,6 @@
                         <p class="honor-date">2024.04</p>
                     </div>
                 </div>
-                <!-- 示例荣誉4，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/C3J7kbP6/1.jpg" target="_blank">
@@ -480,7 +557,6 @@
                         <p class="honor-date">2023.10</p>
                     </div>
                 </div>
-                <!-- 示例荣誉5，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/vv4R7n1H/2.jpg" target="_blank">
@@ -493,7 +569,6 @@
                         <p class="honor-date">2024.11</p>
                     </div>
                 </div>
-                <!-- 示例荣誉6，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/39gQ9PSz/image.jpg" target="_blank">
@@ -506,7 +581,6 @@
                         <p class="honor-date">2024.03</p>
                     </div>
                 </div>
-                <!-- 示例荣誉7，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/XfvrcNWp/image.jpg" target="_blank">
@@ -519,7 +593,6 @@
                         <p class="honor-date">2025.03</p>
                     </div>
                 </div>
-                <!-- 示例荣誉8，你需要替换图片链接和文字内容 -->
                 <div class="honor-box">
                     <div class="honor-img-container">
                         <a href="https://i.ibb.co/vxhYm1ZY/image.jpg" target="_blank">
@@ -527,7 +600,7 @@
                         </a>
                     </div>
                     <div class="honor-content">
-                        <p class="honor-name">“一二·九主题征文”活动</p>
+                        <p class="honor-name">"一二·九主题征文"活动</p>
                         <p class="honor-desc">2023 - 2024学年第一学期</p>
                         <p class="honor-date">2023.12</p>
                     </div>
@@ -540,4 +613,4 @@
     </footer>
 </body>
 
-</html>    
+</html>
