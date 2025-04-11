@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>李辰博-个人主页</title>
+    <style>
+       .brush-line {
+            height: 3px;
+            background: linear-gradient(to right, #3b82f6, rgba(59, 130, 246, 0));
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+       .course-box {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #e5e7eb;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            margin: 0.25rem;
+            flex-basis: calc(33.333% - 0.5rem);
+            transition: transform 0.2s ease;
+        }
+
+       .course-box:hover {
+            transform: scale(1.05);
+        }
+
+       .course-name {
+            color: #000;
+            font-weight: bold;
+        }
+
+       .course-score {
+            color: #3b82f6;
+        }
+
+       .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -0.25rem;
+        }
+
+       .custom-img-max-width {
+            max-width: 20%;
+        }
+
+        /* 个人荣誉部分样式 */
+       .honor-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: calc(33.333% - 1rem);
+            margin: 0.5rem;
+            background-color: #fff;
+            border-radius: 1.5rem; /* 调整整体框的圆角程度 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 1/1.5;
+        }
+
+       .honor-img-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background-color: #ecf1fe;
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 1.5rem; /* 与.honor-box 的圆角程度保持一致 */
+            border-top-right-radius: 1.5rem;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+       .honor-content {
+            flex: 1;
+            padding: 0.5rem;
+        }
+
+       .honor-img {
+            max-height: 100%;
+            max-width: 100%; /* 确保图片不会超出容器宽度 */
+            object-fit: contain; /* 保持图片比例并完整显示在容器内 */
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            margin: auto; /* 让图片在容器内居中 */
+        }
+
+       .honor-img:hover {
+            transform: scale(1.1);
+        }
+
+       .honor-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+       .honor-desc {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+       .honor-date {
+            background-color: #6366f1;
+            color: #fff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 1rem;
+            font-weight: bold;
+        }
+
+       .honor-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -0.5rem;
+        }
+
+        /* 自定义图片百分比类，每张图片可以单独设置不同的百分比 */
+       .honor-img-width-1 {
+            max-width: 70%; /* 图片1的百分比 */
+        }
+
+       .honor-img-width-2 {
+            max-width: 70%; /* 图片2的百分比 */
+        }
+
+       .honor-img-width-3 {
+            max-width: 70%; /* 图片3的百分比 */
+        }
+
+       .honor-img-width-4 {
+            max-width: 70%; /* 图片4的百分比 */
+        }
+
+       .honor-img-width-5 {
+            max-width: 70%; /* 图片5的百分比 */
+        }
+
+       .honor-img-width-6 {
+            max-width: 40%; /* 图片6的百分比 */
+        }
+
+       .honor-img-width-7 {
+            max-width: 40%; /* 图片7的百分比 */
+        }
+
+       .honor-img-width-8 {
+            max-width: 70%; /* 图片8的百分比 */
+        }
+
+        /* 新增 CET 图片悬停放大样式 */
+       .cet-img {
+            transition: transform 0.2s ease;
+        }
+
+       .cet-img:hover {
+            transform: scale(1.1);
+        }
+
+        /* 项目经历和竞赛获奖部分新样式 */
+       .project-box,
+       .competition-box {
+            display: flex;
+            margin: 1rem 0;
+            background-color: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+       .project-img-container,
+       .competition-img-container {
+            position: relative;
+            width: 30%;
+            overflow: hidden;
+            background-color: #ecf1fe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+
+       .project-img,
+       .competition-img {
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            margin: auto; /* 让图片在容器内居中 */
+        }
+
+       .project-img:hover,
+       .competition-img:hover {
+            transform: scale(1.1);
+        }
+
+       .project-content,
+       .competition-content {
+            width: 65%;
+            padding: 1rem;
+        }
+
+       .project-title,
+       .competition-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+       .project-info,
+       .competition-info {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        /* 新增项目图片宽度类 */
+       .project-img-width-1 {
+            max-width: 80%;
+        }
+       .project-img-width-2 {
+            max-width: 80%;
+        }
+
+        /* 新增竞赛图片宽度类 */
+       .competition-img-width-1 {
+            max-width: 45%;
+        }
+       .competition-img-width-2 {
+            max-width: 70%;
+        }
+        .competition-img-width-3 {
+            max-width: 70%;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <div class="relative h-screen bg-cover bg-center" style="background-image: url('https://i.ibb.co/N6qFxS2n/image.jpg');">
+        <div class="absolute inset-0 bg-black opacity-5"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white p-8 border-2 border-white rounded-md w-1/2 bg-white bg-opacity-50">
+            <div class="flex items-center">
+                <div class="flex-1">
+                    <h1 class="text-6xl font-bold mb-4">李辰博</h1>
+                    <p class="text-2xl mb-2">电话：13721679346</p>
+                    <p class="text-2xl mb-2">邮箱：udt917964@gmail.com</p>
+                    <p class="text-2xl">东北大学 · 计算机科学与技术 · 专业5%</p>
+                </div>
+                <img src="https://i.ibb.co/V0Xq2XtL/image.png" alt="image" border="0" class="h-auto w-auto max-h-full ml-4 custom-img-max-width">
+            </div>
+            <div class="mt-4"></div>
+        </div>
+    </div>
+    <main class="container mx-auto p-8 space-y-8">
+        <div>
+            <h2 class="text-2xl font-bold mb-2 flex items-center"><i class="fa-solid fa-graduation-cap mr-2"></i>教育背景</h2>
+            <div class="brush-line"></div>
+            <div class="bg-white p-8 rounded-lg shadow-md flex items-start">
+                <img src="https://i.ibb.co/ksWCgBB8/image.png" alt="image" border="0" class="h-auto w-auto max-w-[9%]">
+                <div>
+                    <p class="text-2xl font-bold text-black">东北大学</p>
+                    <p class="text-lg text-purple-600">计算机科学与技术 | 2022.09 - 至今</p>
+                    <p class="font-bold"><i class="fa-solid fa-award mr-2"></i>专业排名：10/191（TOP 5%）&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-star mr-2"></i>GPA：4.26/5.00</p>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <p class="font-bold text-black mt-2">核心课程成绩</p>
+                <div class="course-container">
+                    <div class="course-box">
+                        <span class="course-name">概率论与数理统计</span>
+                        <span class="course-score">100</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">人工智能导论</span>
+                        <span class="course-score">100</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">汇编语言</span>
+                        <span class="course-score">99</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">电路原理</span>
+                        <span class="course-score">99</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">操作系统</span>
+                        <span class="course-score">97</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">计算机组成原理</span>
+                        <span class="course-score">97</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">C++程序设计</span>
+                        <span class="course-score">96</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">计算机网络</span>
+                        <span class="course-score">95</span>
+                    </div>
+                    <div class="course-box">
+                        <span class="course-name">数据结构</span>
+                        <span class="course-score">91</span>
+                    </div>
+                </div>
+                <p class="font-bold text-black mt-4">语言能力</p>
+                <div class="flex flex-wrap -mx-2">
+                    <div class="w-1/2 px-2 mb-4">
+                        <a href="https://i.ibb.co/9k1vpbNC/CET4.jpg" target="_blank">
+                            <img src="https://i.ibb.co/9k1vpbNC/CET4.jpg" alt="CET4" border="0" class="cet-img">
+                        </a>
+                        <p class="text-center">CET - 4（613）</p>
+                    </div>
+                    <div class="w-1/2 px-2 mb-4">
+                        <a href="https://i.ibb.co/HDXH271H/CET6-202306-130640231209730-1.jpg" target="_blank">
+                            <img src="https://i.ibb.co/HDXH271H/CET6-202306-130640231209730-1.jpg" alt="CET6-202306-130640231209730-1" border="0" class="cet-img">
+                        </a>
+                        <p class="text-center">CET - 6（561）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-2xl font-bold mb-2 flex items-center"><i class="fa-solid fa-microscope mr-2"></i>项目经历</h2>
+            <div class="brush-line"></div>
+            <div>
+                <div class="project-box">
+                    <div class="project-img-container">
+                        <a href="https://i.ibb.co/FkhFjsYS/642c567a-9e19-44af-a07c-e1a4e02e03c9.png" target="_blank">
+                            <img src="https://i.ibb.co/FkhFjsYS/642c567a-9e19-44af-a07c-e1a4e02e03c9.png" alt="项目图片1" class="project-img project-img-width-1">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-title">CNN项目实践-RESNET</p>
+                        <p class="project-info">2024.09-2024.11| 独立完成</p>
+                        <p class="font-bold mb-2">项目经历</p>
+                        <p>自主学习计算机视觉领域经典模型网络CNN的结构，理解并掌握了卷积层，池化层，全连接层的结构、功能以及连接方式。熟悉并掌握ResNet中残差块(Residual Block)和残差映射等相关的原理，进一步理解了基本残差块(Basic Block)，瓶颈残差块(Bottleneck Block)的功能和结构。在模型搭建中依托PyTorch框架，并通过熟练运用公式⌊(W−F+2P)/S+1​⌋对于各个Conv_x层参数大小进行了设置。</p>
+                        <p class="font-bold mb-2">项目成果</p>
+                        <p>使用经典CIFAR - 10数据集对模型进行多个epoch的训练，在自建的预测数据集中准确率可达95%。此次项目提升了个人的Python代码实践能力，并且对于深度学习相关的梯度传播等知识有了深入了解。</p>
+                    </div>
+                </div>
+                <div class="project-box">
+                    <div class="project-img-container">
+                        <a href="https://i.ibb.co/mrjjq19x/697688-BCA9-CE1-D30-E041-A7-F08-AB7-F9-EF.png" target="_blank">
+                            <img src="https://i.ibb.co/mrjjq19x/697688-BCA9-CE1-D30-E041-A7-F08-AB7-F9-EF.png" alt="项目图片2" class="project-img project-img-width-2">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-title">基于Springboot+Vue的文件系统模拟器</p>
+                        <p class="project-info">2024.12 - 2025.01 | 主要负责人</p>
+                        <p class="font-bold mb-2">项目经历</p>
+                        <p>主要负责并设计并实现了基于优先级的进程管理系统，通过将文件操作封装为独立进程模块，开发了高效的内存缓冲区管理机制。系统采用LRU算法优化页面置换策略，性能提升达40%。同时构建了多级并发控制框架，有效解决了优先级反转问题，确保高优先级操作的实时响应。此外，实现了资源所有者限制机制，从根本上防止了资源独占情况的发生。</p>
+                        <p class="font-bold mb-2">项目成果</p>
+                        <p>最终实现了高并发文件操作系统，稳定支持完整的文件创建、读取、更新和删除(CRUD)功能。基于Vue框架开发了可视化监控界面，实时展示磁盘I/O和内存缓冲区的使用状态。该系统在最终评审中凭借出色的性能和用户体验获得优秀评级。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-bold mb-2 flex items-center"><i class="fa-solid fa-trophy mr-2"></i>竞赛获奖</h2>
+            <div class="brush-line"></div>
+            <div>
+                <div class="competition-box">
+                    <div class="competition-img-container">
+                        <a href="https://i.ibb.co/DfWJwvGq/image.png" target="_blank">
+                            <img src="https://i.ibb.co/DfWJwvGq/image.png" alt="竞赛图片1" class="competition-img competition-img-width-1">
+                        </a>
+                    </div>
+                    <div class="competition-content">
+                        <p class="competition-title">全球校园人工智能算法精英大赛</p>
+                        <p class="competition-info">2024.11 | 一等奖</p>
+                        <p class="font-bold mb-2">赛题要求</p>
+                        <p>针对生成式对抗网络(GAN)生成的deepfake的AI人脸图像与真实人脸图像的分类问题，改进现有模型结构和训练方法以提高分类的准确率。</p>
+                        <p class="font-bold mb-2">解决方法</p>
+                        <p>主要通过研究模型网络结构以及数据集处理方法的改进。选用YOLOv8作为分类任务的基座模型，去掉其原有的BackBone-Neck-Head三层网络结构中的C2f模块，并替换为C3K2模块。使得模型可以根据训练时的参数自我调整卷积层的个数，提高模型的特征提取能力；对于训练数据集进行噪点，调整饱和度，翻转等增广处理，避免模型过拟合(Overfitting)；同时统一对所有数据集进行标准化处理(Normalization)，将图像切割只关注人脸部分，提高模型收敛速度，增强泛化能力。</p>
+                        <p class="font-bold mb-2">竞赛成果</p>
+                        <p>改进后的模型在deepfake经典数据集CelebA上分类准确率达97%以上，在赛题数据集中表现优异，在300余支队伍中排名16，荣获国家一等奖。</p>
+                    </div>
+                </div>
+                <div class="competition-box">
+                    <div class="competition-img-container">
+                        <a href="https://i.ibb.co/248D8mM/image.jpg" target="_blank">
+                            <img src="https://i.ibb.co/248D8mM/image.jpg" alt="竞赛图片2" class="competition-img competition-img-width-2">
+                        </a>
+                    </div>
+                    <div class="competition-content">
+                        <p class="competition-title">全国大学生数学竞赛</p>
+                        <p class="competition-info">2023.12 | 一等奖</p>
+                        <p class="font-bold mb-2">赛题要求</p>
+                        <p>本次竞赛要求参赛者熟练掌握高等数学的知识体系结构，对于立体几何，微积分，多重积分等要求熟练运用。</p>
+                        <p class="font-bold mb-2">准备方法</p>
+                        <p>依据不同类型题在数学知识框架上搭建逻辑联系，做到同一问题多种思维解决，实现融会贯通。</p>
+                        <p class="font-bold mb-2">竞赛成果</p>
+                        <p>成功解答出立体几何、极限极值、多重积分等多道大题，荣获一等奖。</p>
+                    </div>
+                </div>
+                <div class="competition-box">
+                    <div class="competition-img-container">
+                        <a href="https://i.ibb.co/B53XLKzc/image.jpg" target="_blank">
+                            <img src="https://i.ibb.co/B53XLKzc/image.jpg" alt="竞赛图片3" class="competition-img competition-img-width-2">
+                        </a>
+                    </div>
+                    <div class="competition-content">
+                        <p class="competition-title">中国大学生计算机设计大赛</p>
+                        <p class="competition-info">2024.06 | 省级二等奖</p>
+                        <p class="font-bold mb-2">赛题要求</p>
+                        <p>本次竞赛要求参赛团队依据现有大语言模型作为基座模型，通过自制数据集和调整训练方法增强其在中国传统文化某个领域的解答能力，并要求实现多模态功能。</p>
+                        <p class="font-bold mb-2">解决方法</p>
+                        <p>我们团队首先选用Qwen1.5-14B作为基座模型，在基座模型预训练基础上，搜集Hugging Face中经典中医问诊数据集，相较原模型增加了模拟多轮问诊，中医养生建议的功能。模型还通过Ollama框架集成了文档内容提取，文生图以及语音识别功能。模型训练中引入LoRA微调来代替全微调(Full Fine-Tuning)，减少了模型训练所需的参数以及资源消耗。</p>
+                        <p class="font-bold mb-2">竞赛成果</p>
+                        <p>模型相较基座模型在C3数据集中提升1.8分(92.6vs90.8)，CSL数据集提升3.15分(58.75vs55.6)，成功获得了竞赛的二等奖。同时提升了个人对于NLP领域模型部署搭建的实践能力，掌握了模型训练和微调以及数据集处理的方法。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-bold mb-2 flex items-center"><i class="fa-solid fa-medal mr-2"></i>个人荣誉</h2>
+            <div class="brush-line"></div>
+            <div class="honor-container">
+                <!-- 示例荣誉1，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/TMhbRwgs/1.jpg" target="_blank">
+                            <img src="https://i.ibb.co/TMhbRwgs/1.jpg" alt="荣誉1" class="honor-img honor-img-width-1">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">校级三好学生</p>
+                        <p class="honor-desc">2022 - 2023学年</p>
+                        <p class="honor-date">2023.11</p>
+                    </div>
+                </div>
+                <!-- 示例荣誉2，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/ycSL0LMB/2.jpg" target="_blank">
+                            <img src="https://i.ibb.co/ycSL0LMB/2.jpg" alt="荣誉2" class="honor-img honor-img-width-2">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">校级三好学生</p>
+                        <p class="honor-desc">2023 - 2024学年</p>
+                        <p class="honor-date">2024.11</p>
+                    </div>
+                </div>
+                <!-- 示例荣誉3，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/gFhNfm9n/image.jpg" target="_blank">
+                            <img src="https://i.ibb.co/gFhNfm9n/image.jpg" alt="荣誉3" class="honor-img honor-img-width-3">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">校级二等奖学金</p>
+                        <p class="honor-desc">2023 - 2024学年第一学期</p>
+                        <p class="honor-date">2024.04</p>
+                    </div>
+                </div>
+                <!-- 示例荣誉4，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/C3J7kbP6/1.jpg" target="_blank">
+                            <img src="https://i.ibb.co/C3J7kbP6/1.jpg" alt="荣誉4" class="honor-img honor-img-width-4">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">校级三等奖学金</p>
+                        <p class="honor-desc">2022 - 2023学年第二学期</p>
+                        <p class="honor-date">2023.10</p>
+                    </div>
+                </div>
+                <!-- 示例荣誉5，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/vv4R7n1H/2.jpg" target="_blank">
+                            <img src="https://i.ibb.co/vv4R7n1H/2.jpg" alt="荣誉5" class="honor-img honor-img-width-5">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">校级三等奖学金</p>
+                        <p class="honor-desc">2023 - 2024学年第二学期</p>
+                        <p class="honor-date">2024.11</p>
+                    </div>
+                </div>
+                <!-- 示例荣誉6，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/39gQ9PSz/image.jpg" target="_blank">
+                            <img src="https://i.ibb.co/39gQ9PSz/image.jpg" alt="荣誉6" class="honor-img honor-img-width-6">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">学习标兵</p>
+                        <p class="honor-desc">2023 - 2024学年第一学期</p>
+                        <p class="honor-date">2024.03</p>
+                    </div>
+                </div>
+                <!-- 示例荣誉7，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/XfvrcNWp/image.jpg" target="_blank">
+                            <img src="https://i.ibb.co/XfvrcNWp/image.jpg" alt="荣誉7" class="honor-img honor-img-width-7">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">学习标兵</p>
+                        <p class="honor-desc">2024 - 2025学年第一学期</p>
+                        <p class="honor-date">2025.03</p>
+                    </div>
+                </div>
+                <!-- 示例荣誉8，你需要替换图片链接和文字内容 -->
+                <div class="honor-box">
+                    <div class="honor-img-container">
+                        <a href="https://i.ibb.co/vxhYm1ZY/image.jpg" target="_blank">
+                            <img src="https://i.ibb.co/vxhYm1ZY/image.jpg" alt="荣誉8" class="honor-img honor-img-width-8">
+                        </a>
+                    </div>
+                    <div class="honor-content">
+                        <p class="honor-name">“一二·九主题征文”活动</p>
+                        <p class="honor-desc">2023 - 2024学年第一学期</p>
+                        <p class="honor-date">2023.12</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2025 李辰博 - 个人主页</p>
+    </footer>
+</body>
+
+</html>    
