@@ -424,24 +424,24 @@
                         <p class="project-title">RESNET实践-零件缺陷分类 </p>
                         <p class="project-info">2024.09-2024.10| 独立完成</p>
                         <p class="font-bold mb-2">项目经历</p>
-                        <p>自主学习计算机视觉领域经典模型网络CNN的结构，理解并掌握了卷积层，池化层，全连接层的结构、功能以及连接方式。熟悉并掌握ResNet中残差块(Residual Block)和残差映射等相关的原理。在模型搭建中依托PyTorch框架，加载基于ImageNet数据集训练的ResNet-18预训练权重，并通过获取原模型全连接层的输入特征值(feature)，以开源DeepPCB 数据集作为训练数据集，将全连接层的输出类别修改为6种，达到解决零件缺陷分类任务的目的。</p>
-                        <p class="font-bold mb-2">项目成果</p>
-                        <p>通过调整batchsize、learning-rate等超参数进行训练，测试数据集中准确率可达95%。此次项目大幅提升我的Python代码实践能力，也增强了我灵活运用所学解决实际问题的能力。</p>
+                        <p>通过学习经典模型ResNet的结构，重点掌握ResNet中残差块的原理。依托PyTorch框架搭建模型，基于ImageNet数据集训练ResNet-18的预训练权重并加载到模型中。通过获取原模型全连接层的输入特征值，以开源 DeepPCB数据集作为训练数据集，将全连接层的输出类别修改为 6 种。在训练过程中，采用了余弦退火学习率调度策略，动态调整学习率，使模型在训练初期能够快速收敛，后期能够更精细地调整参数。</p>
+                        <p class="font-bold mb-2">项目成就</p>
+                        <p>采用网格搜索法设置3*3的网格调整batch-size、学习率等超参数进行训练，在测试数据集中准确率可达95%，精确率达到了93%，召回率为92%，F1 值为 92.5%，表明模型在零件缺陷分类任务上具有较高的准确性和可靠性。</p>
                     </div>
                 </div>
                 <div class="project-box">
                     <div class="project-img-container">
-                        <a href="./images/springboot.png" target="_blank">
-                            <img src="./images/springboot.png" alt="项目图片2" class="project-img project-img-width-2">
+                        <a href="./images/benccao.png" target="_blank">
+                            <img src="./images/benccao.png" alt="项目图片2" class="project-img project-img-width-2">
                         </a>
                     </div>
                     <div class="project-content">
-                        <p class="project-title">基于Springboot+Vue的文件系统模拟器</p>
-                        <p class="project-info">2024.12 - 2025.01 | 主要负责人</p>
+                        <p class="project-title">中医问答大模型-本草悟道</p>
+                        <p class="project-info">2024.03-2024.05| 主负责人</p>
                         <p class="font-bold mb-2">项目经历</p>
-                        <p>主要负责并设计并实现了基于优先级的进程管理系统，通过将文件操作封装为独立进程模块，开发了高效的内存缓冲区管理机制。系统采用LRU算法优化页面置换策略，性能提升达40%。同时构建了多级并发控制框架，有效解决了优先级反转问题，确保高优先级操作的实时响应。此外，实现了资源所有者限制机制，从根本上防止了资源独占情况的发生。</p>
-                        <p class="font-bold mb-2">项目成果</p>
-                        <p>最终实现了高并发文件操作系统，稳定支持完整的文件创建、读取、更新和删除(CRUD)功能。基于Vue框架开发了可视化监控界面，实时展示磁盘I/O和内存缓冲区的使用状态。该系统在最终评审中凭借出色的性能和用户体验获得优秀评级。</p>
+                        <p>基于Qwen1.5-14B开发中医问答大模型，利用Langchain的文档加载与智能分割技术，高效处理了Hugging Face平台上的TCM、MLEC-QA等结构化数据集，以及中医古籍文献等非结构化数据集。引入检索增强生成(RAG)技术，使用acge_text_embedding模型作为Embedding模型，运用俄罗斯套娃表征学习(MRL)产生可变维度嵌入向量，基于Milvus构建向量数据库，通过检索知识为模型提供上下文，提升中医问答能力。借助Langchain的多模态接口集成能力，将基座模型和文生图(Stable Diffusion)模型进行集成，解决用户生成中医药图片的需求。模型训练中引入LoRA微调来代替全微调，冻结基座模型的所有Embedding层和LayerNorm层，仅对Query和Value 矩阵进行低秩(R=8)分解,可训练参数较原模型减少约 99.98%(14B->2.8M)，使训练时间缩短 40%。</p>
+                        <p class="font-bold mb-2">项目成就</p>
+                        <p>经RAG技术与LoRA微调加持后，模型在神农中医药数据集上的问答准确率达 89.7%，较基座模型提升12%，文生图通过CLIP模型计算相似度达92%，实现中医问答与多模态功能高效落地。</p>
                     </div>
                 </div>
             </div>
@@ -461,11 +461,11 @@
                         <p class="competition-title">全球校园人工智能算法精英大赛</p>
                         <p class="competition-info">2024.11 | 一等奖</p>
                         <p class="font-bold mb-2">赛题要求</p>
-                        <p>针对生成式对抗网络(GAN)生成的deepfake的AI人脸图像与真实人脸图像的分类问题，改进现有模型结构和训练方法以提高分类的准确率。</p>
+                        <p>参与“AI 生成人脸图像鉴别”竞赛，聚焦现有的AI模型(Stable Diffusion、GAN等)生成的虚假人脸与真实人脸的二分类问题，通过模型结构创新与训练策略优化，提升分类准确率与泛化能力。</p>
                         <p class="font-bold mb-2">解决方法</p>
-                        <p>主要通过研究模型网络结构以及数据集处理方法的改进。选用YOLOv8作为分类任务的基座模型，去掉其原有的BackBone-Neck-Head三层网络结构中的C2f模块，并替换为C3K2模块。使得模型可以根据训练时的参数自我调整卷积层的个数，提高模型的特征提取能力；对于训练数据集进行噪点，调整饱和度，翻转等增广处理，避免模型过拟合(Overfitting)；同时统一对所有数据集进行标准化处理(Normalization)，将图像切割只关注人脸部分，提高模型收敛速度，增强泛化能力。</p>
+                        <p>以YOLOv8为基础模型，针对人脸鉴别任务特性，在BackBone中融入CBAM机制，强化网络对人脸关键特征(如五官纹理、光影分布)的捕捉能力；同时重构Neck与Head层结构，通过调整输出层维度，使模型更适配二分类任务需求。对训练数据集实施多维增广操作，包括高斯模糊模拟图像噪点、饱和度调整增加色彩多样性、随机翻转扩展视角变化，有效缓解模型过拟合问题；通过人脸区域精准裁剪(采用MTCNN算法定位人脸关键点)，去除冗余背景信息；采用 AdamW优化器结合余弦退火学习率策略，动态调整训练步长，模型收敛速率显著提升。</p>
                         <p class="font-bold mb-2">竞赛成果</p>
-                        <p>改进后的模型在deepfake经典数据集CelebA上分类准确率达97%以上，在赛题数据集中表现优异，在300余支队伍中排名16，荣获国家一等奖。</p>
+                        <p>改进后的模型在deepfake数据集CelebA上分类准确率达97.3%，在赛题数据集中准确率达98%，在327支队伍中排名16，荣获国家一等奖。</p>
                     </div>
                 </div>
                 <div class="competition-box">
@@ -483,23 +483,6 @@
                         <p>依据不同类型题在数学知识框架上搭建逻辑联系，做到同一问题多种思维解决，实现融会贯通。</p>
                         <p class="font-bold mb-2">竞赛成果</p>
                         <p>成功解答出立体几何、极限极值、多重积分等多道大题，荣获一等奖。</p>
-                    </div>
-                </div>
-                <div class="competition-box">
-                    <div class="competition-img-container">
-                        <a href="./images/cccc.jpg" target="_blank">
-                            <img src="/images/cccc.jpg" alt="竞赛图片3" class="competition-img competition-img-width-2">
-                        </a>
-                    </div>
-                    <div class="competition-content">
-                        <p class="competition-title">中国大学生计算机设计大赛</p>
-                        <p class="competition-info">2024.06 | 二等奖</p>
-                        <p class="font-bold mb-2">赛题要求</p>
-                        <p>本次竞赛要求参赛团队依据现有大语言模型作为基座模型，通过自制数据集和调整训练方法增强其在中国传统文化某个领域的解答能力，并要求实现多模态功能。</p>
-                        <p class="font-bold mb-2">解决方法</p>
-                        <p>我们团队首先选用Qwen1.5-14B作为基座模型，在基座模型预训练基础上，搜集Hugging Face中经典中医问诊数据集，相较原模型增加了模拟多轮问诊，中医养生建议的功能。模型还通过Ollama框架集成了文档内容提取，文生图以及语音识别功能。模型训练中引入LoRA微调来代替全微调(Full Fine-Tuning)，减少了模型训练所需的参数以及资源消耗。</p>
-                        <p class="font-bold mb-2">竞赛成果</p>
-                        <p>模型相较基座模型在C3数据集中提升1.8分(92.6vs90.8)，CSL数据集提升3.15分(58.75vs55.6)，成功获得了竞赛的二等奖。同时提升了个人对于NLP领域模型部署搭建的实践能力，掌握了模型训练和微调以及数据集处理的方法。</p>
                     </div>
                 </div>
             </div>
